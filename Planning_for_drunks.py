@@ -9,8 +9,6 @@ import random
 import numpy
 import matplotlib.pyplot
 
-
-
 environment = [] #An empty list
 
 f = open('Drunk.txt', 'r')
@@ -24,7 +22,6 @@ f.close()
 
 #del row, rowlist 
 
-
 lsize = len(environment) #Size of the canvas is lsize X lsize
 #print("canvas size = "+str(lsize))
 
@@ -37,7 +34,6 @@ it's size (21, pub, 11, houses) and value (1, pub, 10 house.....).
 place_c = []	#Store coordinate (i1,i2).
 place_v = []	#Store valuse 1, 10, 20... unique.
 place_l = []	#Store size of square, 21 for pub and 11 for houses.
-
 	    
 '''
 From the bottom row (index=0), and in each row search for the
@@ -68,9 +64,9 @@ for row in range(lsize):
                            #thus giving the size of square.   
 			if (vec[col] == vec[col-1]):  #Either inside the square or totally outside.
 				pass
-            #If statement checks whether current entry is same as previous one.
-            #If yes, then current iteration of col is either totally inside a square or totally outside, and there is nothing to do. 
-            #at the boundary
+              #If statement checks whether current entry is same as previous one.
+              #If yes, then current iteration of col is either totally inside a square or totally outside, and there is nothing to do. 
+              #at the boundary
 			else: #Check if append needed.
 				if (vec[col] > 0.0): #At left boundary, otherwise vec[col] would be 0.
 					try: 
