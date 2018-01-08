@@ -171,7 +171,7 @@ def random_move(ndrunk):
 for i in range_ndrunk:
     nsteps = numpy.zeros([lsize,lsize])	#2d array to save footprints in each grid.
 	
-    '''Whenever the drunk walks to a coordinate x,y increase nwalks[x][y] by 1.'''
+    '''Whenever the drunk walks to a coordinate x,y increase nsteps[x][y] by 1.'''
 
     home_val = mlist[i+1][0]      #The value representing the home of the drunk on the environment.
     home_size = mlist[i+1][1]     #Size of the square (house) for the drunk.
@@ -197,14 +197,15 @@ for i in range_ndrunk:
 	
     print("number of steps = ",count,"final coordinates = ",drunk_loc[i]) # [xa,ya],[xb,yb])
 		
-    str_n='' #Newline.
+    str_n='' #Empty string.
     for i1 in range(lsize): 
         for i2 in range(lsize):
-            str_n  += str(i1)+' '+str(i2)+' '+str(nsteps[i1][i2])+'\n' 
+            '''string concatenation'''
+            str_n  += str(i1)+' '+str(i2)+' '+str(nsteps[i1][i2])+'\n'
 				
-        str_n += '\n'
+        str_n += '\n' #Append above loop, right side string expression
 		
-    f1=open("nwalks"+str(i)+".text",'w') #Write file
+    f1=open("nsteps"+str(i)+".text",'w') #Write file
     f1.write(str_n)
     f1.close()
 
@@ -219,4 +220,3 @@ for i in range_ndrunk:
     ax.add_patch(rect2)
     ax.text(12, lsize - 24, "Number of steps = "+str(count),color="black")
     matplotlib.pyplot.show()
-   
