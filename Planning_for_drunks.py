@@ -208,6 +208,7 @@ for i in range_ndrunk:
     f1.write(str_n)
     f1.close()
 
+    '''Text labels and annotations added'''
     fig,ax = matplotlib.pyplot.subplots(1) #Only one necessary.
     matplotlib.pyplot.xlim(0, lsize-1) 
     matplotlib.pyplot.ylim(0, lsize-1)
