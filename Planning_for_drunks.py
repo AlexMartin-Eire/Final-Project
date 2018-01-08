@@ -203,7 +203,7 @@ for i in range_ndrunk:
             '''string concatenation'''
             str_n  += str(i1)+' '+str(i2)+' '+str(nsteps[i1][i2])+'\n'
 				
-        str_n += '\n' #Append above loop, right side string expression
+        str_n += '\n' #Append above loop, right side string expression, newline.
 		
     f1=open("nsteps"+str(i)+".text",'w') #Write file
     f1.write(str_n)
