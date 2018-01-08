@@ -4,7 +4,22 @@ Created on Mon Dec 18 18:14:13 2017
 
 @author: gy17a3m
 """
+'''The following program aims to do the following...
 
+    Pull in the data file and finds out the pub point and the home points.
+    Draws the pub and homes on the screen.
+    Models the drunks leaving their pub and reaching their homes, and stores how 
+    many drunks pass through each point on the map.
+    Draws the density of drunks passing through each point on a map.
+    Saves the density map to a file as text.'''
+    
+'''The basic algorithm is, for each drunk (who will have numbers between 10 and 250 assigned 
+    before leaving the pub), move the drunk randomly left/right/up/down in a loop 
+    that picks randomly the way it will go. When it hits the correctly numbered house, 
+    stop the process and start with the next drunk. At each step for each drunk, add one to the density 
+    for that point on the map.'''
+    
+    
 #Imported libraries/modules with built in functions.
 import csv #Implements classes to read and write tabular data in CSV format.
 import random #Allows for random number in a given range.
@@ -24,15 +39,14 @@ for row in reader:
     environment.append(rowlist)             
 f.close()
 
-
 lsize = len(environment) #Size of the canvas is lsize X lsize
 #print("canvas size = "+str(lsize))
 
 
 '''Having read in the file now to process the input data and extract the location of	    
-the non-zero boxes. Assuming the boxes are squares, deduce the first coordinate hit, 
-it's size (21, pub, 11, houses) and value (1, pub, 10 house.....).
-'''
+   the non-zero boxes. Assuming the boxes are squares, deduce the first coordinate hit, 
+   it's size (21, pub, 11, houses) and value (1, pub, 10 house.....).
+   '''
 
 place_c = []	#Store coordinate (i1,i2).
 place_v = []	#Store valuse 1, 10, 20... unique.
@@ -40,17 +54,17 @@ place_l = []	#Store size of square, 21 for pub and 11 for houses.
 	    
 
 '''From the bottom row (index=0), and in each row search for the
-first nonzero entry which defines the start of the square block. 
+   first nonzero entry which defines the start of the square block. 
 
-Next, since the shapes are square, this entry will stay nonzero until
-the square ends. Then deduce that, which gives the size of the square.
+   Next, since the shapes are square, this entry will stay nonzero until
+   the square ends. Then deduce that, which gives the size of the square.
 
-Note that for every row of the given square only the data for 
-the first occurrence is saved. Below the "ValueError" is to make sure
-only the first entry is saved of the given square and the rest discarded.
+   Note that for every row of the given square only the data for 
+   the first occurrence is saved. Below the "ValueError" is to make sure
+   only the first entry is saved of the given square and the rest discarded.
 
-Once the entire canvas is scanned a list of all the squares is produced.
-'''
+   Once the entire canvas is scanned a list of all the squares is produced.
+   '''
 
 for row in range(lsize):
 	vec = environment[row]	#Vec now represent the current row
