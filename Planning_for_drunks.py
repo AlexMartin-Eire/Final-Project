@@ -112,10 +112,10 @@ ndrunk = numbox - 1    #Number of drunks = number of houses.
 mlist = []
 #print("lengths = ",len(place_v),len(place_c),len(place_l))
 for i in range(numbox):
-	tmp = [place_v[i], place_l[i], place_c[i]] 
-	mlist.append(tmp)
+	temp = [place_v[i], place_l[i], place_c[i]] 
+	mlist.append(temp)
 
-del tmp #No longer of use.
+del temp #No longer of use.
 
 mlist.sort() #Sort the list in increasing order of values. 
 
@@ -208,10 +208,10 @@ for i in range_ndrunk:
     f1.write(str_n)
     f1.close()
 
-    fig,ax = matplotlib.pyplot.subplots(1)
-    matplotlib.pyplot.xlim(0, lsize-1)
+    fig,ax = matplotlib.pyplot.subplots(1) #Only one necessary.
+    matplotlib.pyplot.xlim(0, lsize-1) 
     matplotlib.pyplot.ylim(0, lsize-1)
-    ax.imshow(nsteps)
+    ax.imshow(nsteps) #Show number of steps.
     rect1 = matplotlib.patches.Rectangle((xhome,yhome),home_size,home_size, fill=None,edgecolor="white",linewidth=1)
     ax.add_patch(rect1)
     rect2 = matplotlib.patches.Rectangle(pub_loc,pbsize,pbsize, fill=None,edgecolor="white",linewidth=1)
