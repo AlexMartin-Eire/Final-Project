@@ -102,7 +102,7 @@ for row in range(lsize):
 						place_l.append(c) #Has the size of the square.
 					c = 0 #Re-initialize. 
                     
-del vec #reassigned.
+#del vec #reassigned.
 
 '''Now know the location of the boxes, their sizes, and their numbers.''' 
 
@@ -145,7 +145,7 @@ for i in range_ndrunk:
 print(drunk_loc)	#print initial location (should be inside pub).
 
 def random_move(ndrunk):
-	'''Function to perform a random move on square grid
+	'''Function to perform a random move on the square grid
 	with four choices, left, right, up and down, with
 	periodic boundary. Call a random number to decide which way to move.
 	(1,0), (-1,0), (0,1), (0,-1)
@@ -210,13 +210,13 @@ for i in range_ndrunk:
     f1.close()
 
     '''Text labels and annotations added'''
-    fig,ax = matplotlib.pyplot.subplots(1) #Only one necessary.
+    fig,ax = matplotlib.pyplot.subplots(1)
     matplotlib.pyplot.xlim(0, lsize-1) 
     matplotlib.pyplot.ylim(0, lsize-1)
     ax.imshow(nsteps) #Show number of steps.
     rect1 = matplotlib.patches.Rectangle((xhome,yhome),home_size,home_size, fill=None,edgecolor="white",linewidth=1)
-    ax.add_patch(rect1)
+    ax.add_patch(rect1) #Home
     rect2 = matplotlib.patches.Rectangle(pub_loc,pbsize,pbsize, fill=None,edgecolor="white",linewidth=1)
-    ax.add_patch(rect2)
+    ax.add_patch(rect2) #Pub
     ax.text(12, lsize - 24, "Number of steps = "+str(count),color="black")
     matplotlib.pyplot.show()
